@@ -1,4 +1,4 @@
-git pull origin main
-git add .
-git commit -m "your commit message"
-git push -u origin main
+git pull origin main \n
+git add .   \n
+git commit -m "your commit message" \n
+git push -u origin main  \n

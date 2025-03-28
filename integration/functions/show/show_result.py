@@ -22,7 +22,7 @@ def display_image_with_annotations(root_path):
     #print("Label file path:", label_file_path)  # 打印路径以检查是否正确
     
     # 读取标注数据
-    with open(label_file_path, 'r') as f:
+    with open(label_file_path, 'r',encoding='utf-8') as f:
         lines = f.readlines()
 
     # 遍历每一行标注

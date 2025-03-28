@@ -279,8 +279,8 @@ def parse_opt():
     parser.add_argument("--imgsz", "--img", "--img-size", nargs="+", type=int, default=[1024], help="inference size h,w")
     parser.add_argument("--conf-thres", type=float, default=0.5, help="confidence threshold")       #!这里修改置信率 0.5以上会被标注识别出来
     parser.add_argument("--iou-thres", type=float, default=0.1, help="NMS IoU threshold")             #!框的交并比阈值
-    parser.add_argument("--max-det", type=int, default=100, help="maximum detections per image")
-    parser.add_argument("--device", default="0", help="cuda device, i.e. 0 or 0,1,2,3 or cpu")
+    parser.add_argument("--max-det", type=int, default=200, help="maximum detections per image")
+    parser.add_argument("--device", default="cpu", help="cuda device, i.e. 0 or 0,1,2,3 or cpu")
     parser.add_argument("--view-img", action="store_true", help="show results")                     #  展示结果
     parser.add_argument("--save-txt", action="store_true",default=True, help="save results to *.txt")            #! 保存框的位置信息
     parser.add_argument(

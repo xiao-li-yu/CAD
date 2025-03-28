@@ -129,8 +129,12 @@ def process_image(image_path, test_images_folder, template_folder, output_folder
 
     # 获取每张图片的旋转角度和增强后的图像
     rotation_angle, rotated_image, enhanced_image = get_rotation_angle(image, template_folder)
+    import math
 
-    # 旋转增强的二值图像
+    #  rotation_angle 为空时设置为0（模板未匹配上）
+    if rotation_angle is None or math.isnan(float(rotation_angle)):
+        rotation_angle = 0  # 如果是 NaN 或 None，则设置为 0
+    # 然后再进行转换为整数并应用旋转
     enhanced_rotated_image = rotate_image(enhanced_image, -int(rotation_angle))
 
     # 如果需要展示结果，打印旋转角度信息

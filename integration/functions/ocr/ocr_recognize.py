@@ -4,7 +4,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import re
 from paddleocr import PaddleOCR
-
 from pathlib import Path
 import sys
 FILE = Path(__file__).resolve()
@@ -12,9 +11,10 @@ ROOT = FILE.parents[2]
 if str(ROOT) not in sys.path:
     sys.path.append(str(ROOT))  # add ROOT to PATH
 ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
-
+import torch
+torch.cuda.empty_cache()
 # 创建 PaddleOCR 实例
-ocr = PaddleOCR(use_angle_cls=True, lang='ch')
+ocr = PaddleOCR(use_angle_cls=False, lang='ch', rec_dict='custom_dict.txt',use_gpu=False)
 
 def process_image_and_save_result(img_path, result_file):
     """处理图像并将 OCR 结果追加到同一个文件的每一行"""
